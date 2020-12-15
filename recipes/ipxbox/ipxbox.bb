@@ -1,0 +1,56 @@
+DESCRIPTION = "A standalone DOSBox IPX server."
+SECTION = "misc"
+HOMEPAGE = "https://github.com/fragglet/ipxbox"
+
+LICENSE = ""
+LIC_FILES_CHKSUM = ""
+
+SRCNAME = "ipxbox"
+PKG_NAME = "github.com/fragglet/${SRCNAME}"
+
+SRC_URI = "\
+    git://${GO_IMPORT};branch=master \
+    file://systemd-units/ipxbox.service \
+    file://avahi/ipxbox.service \
+"
+
+SRCREV = "${AUTOREV}"
+
+GO_LINKSHARED = ""
+GO_IMPORT = "${PKGNAME}"
+GO_INSTALL = "${GO_IMPORT}/..."
+
+SYSTEMD_PACKAGES += "${PN}"
+SYSTEMD_SERVICE_${PN} = "${SRCNAME}.service"
+SYSTEMD_AUTO_ENABLE_${PN} = "enable"
+
+inherit go systemd
+
+DEPENDS = "\
+    avahi \
+"
+
+RDEPENDS_${PN}_append = "\
+    avahi-daemon \
+    avahi-autoipd \
+"
+
+RDEPENDS_${PN}-dev_append = "\
+    bash \
+"
+
+RDEPENDS_${PN}-staticdev_append = "\
+    perl \
+    bash \
+"
+
+
+do_install_append() {
+        install -d ${D}${systemd_unitdir}/system
+        install -m 0644 ${WORKDIR}/systemd-units/${SRCNAME}.service ${D}${systemd_unitdir}/system
+
+        install -d ${D}${sysconfdir}/avahi/services
+        install -m 0644 ${WORKDIR}/avahi/${SRCNAME}.service ${D}${sysconfdir}/avahi/services
+
+        install -d ${D}${sysconfdir}/ssl/certs
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description="ipxbox"
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ipxbox
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
