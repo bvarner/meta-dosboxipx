@@ -2,8 +2,6 @@ SUMMARY = "An image for running dosboxipx server."
 HOMEPAGE = "https://github.com/bvarner/meta-dosboxipx"
 LICENSE = "MIT"
 
-DEPENDS += "rpi-bootfiles"
-
 IMAGE_LINGUAS = "en-us"
 
 IMAGE_FEATURES += "read-only-rootfs"
@@ -25,6 +23,7 @@ IMAGE_INSTALL += " \
     wpa-supplicant \
     avahi-daemon \
     avahi-autoipd \
+    ipxbox \
 "
 
 set_local_timezone() {

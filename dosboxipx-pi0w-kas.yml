@@ -12,10 +12,11 @@ repos:
 
   meta-raspberrypi:
     url: https://github.com/agherzan/meta-raspberrypi.git
+    refspec: gatesgarth
 
   poky:
     url: https://git.yoctoproject.org/git/poky
-    refspec: master
+    refspec: gatesgarth
     layers:
       meta:
       meta-poky:
@@ -23,7 +24,7 @@ repos:
 
   meta-openembedded:
     url: http://git.openembedded.org/meta-openembedded
-    refspec: master
+    refspec: gatesgarth
     layers:
       meta-oe:
       meta-python:
