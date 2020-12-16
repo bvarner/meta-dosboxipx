@@ -45,9 +45,9 @@ The process goes something like:
      ```
 
 5. Use `bmaptool` to write the image out to a block device.
-   
-   **Adjust the target device name, `/dev/mmcblk0` appropriately.**
-   
+
+   **Adjust the target device name, `/dev/mmcblk0` appropriately, and don't forget to unmount it first!**
+
    * Raspberry Pi Model B
      ```
      cd build/tmp/deploy/images/raspberrypi
