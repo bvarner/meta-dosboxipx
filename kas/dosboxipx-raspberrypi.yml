@@ -10,10 +10,10 @@ target:
 
 repos:
   meta-dosboxipx:
-    url: git@github.com:bvarner/meta-dosboxipx
+    url: https://github.com/bvarner/meta-dosboxipx.git
 
   meta-varnerized:
-    url: git@github.com:/bvarner/meta-varnerized
+    url: https://github.com/bvarner/meta-varnerized.git
     refspec: gatesgarth
     layers:
       meta-raspberrypi:
