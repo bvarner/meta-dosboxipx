@@ -40,8 +40,9 @@ repos:
 
 local_conf_header:
   pi_setup: |
+    RPI_USE_UBOOT = "1"
     GPU_MEM = "16"
-    hostname_pn_base-files-name = "dosboxipx"
+    hostname_pn-base-files = "dosboxipx"
     DISTRO_FEATURES = "systemd usbhost wifi zeroconf "
     DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
     VIRTUAL-RUNTIME_init_manager = "systemd"
