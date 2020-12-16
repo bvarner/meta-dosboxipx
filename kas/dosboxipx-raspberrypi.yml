@@ -1,7 +1,9 @@
 header:
   version: 9
+  includes:
+    - local-env.yml
 
-machine: raspberrypi0-wifi
+machine: raspberrypi
 distro: poky
 target:
   - dosboxipxserver-image
@@ -9,6 +11,12 @@ target:
 repos:
   meta-dosboxipx:
     url: git@github.com:bvarner/meta-dosboxipx
+
+  meta-varnerized:
+    url: git@github.com:/bvarner/meta-varnerized
+    refspec: gatesgarth
+    layers:
+      meta-raspberrypi:
 
   meta-raspberrypi:
     url: https://github.com/agherzan/meta-raspberrypi.git
@@ -43,12 +51,8 @@ local_conf_header:
     INHERIT += "rm_work_and_downloads"
     RM_OLD_IMAGE = "1"
   standard: |
-    BB_NICE_LEVEL="19"
     CONF_VERSION = "1"
     PACKAGE_CLASSES = "package_ipk"
-    SDKMACHINE = "x86_64"
     USER_CLASSES = "buildstats image-mklibs image-prelink"
     PATCHRESOLVE = "noop"
-  debug-tweaks: |
-    EXTRA_IMAGE_FEATURES = "debug-tweaks"
 

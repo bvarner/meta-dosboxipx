@@ -1,0 +1,6 @@
+header:
+  version: 9
+  includes:
+    - dosboxipx-raspberrypi.yml
+
+machine: raspberrypi0-wifi

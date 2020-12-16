@@ -1,0 +1,15 @@
+header:
+  version: 9
+
+env:
+  disable_getty: ""
+  timezone: "UTC"
+  ssid: ""
+  psk: ""
+
+local_conf_header:
+  local_machine_settings: |
+    SDKMACHINE = "x86_64"
+    BB_NICE_LEVEL="19"
+  debug-tweaks: |
+    EXTRA_IMAGE_FEATURES = "debug-tweaks"
