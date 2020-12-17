@@ -47,7 +47,7 @@ RDEPENDS_${PN}-staticdev_append = "\
     bash \
 "
 
-# Modern go builds that use the go modules, or need go dependencies to be gotten before compilation...
+# ipxbox has no go.mod file, so get dependencies this way...
 do_compile_prepend() {
     ( cd ${WORKDIR}/build/src/${GO_IMPORT} && ${GO} get -d ./... )
 }
